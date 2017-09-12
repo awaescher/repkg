@@ -1,0 +1,52 @@
+# OldPackage @OldVersion | NewPackage @NewVersion
+# Whitespaces are ignored
+# Leave right side blank to remove packages
+
+DevExpress.BonusSkins @15.2.11.0						| DevExpress.Win.BonusSkins @17.1.6.0
+DevExpress.Charts.Core @15.2.11.0						| DevExpress.Charts.Core @17.1.6.0
+DevExpress.CodeParser @15.2.11.0						| DevExpress.DataAccess @17.1.6.0
+DevExpress.Data @15.2.11.0								| DevExpress.Data @17.1.6.0
+DevExpress.DataAccess @15.2.11.0						| DevExpress.DataAccess @17.1.6.0
+DevExpress.DataAccess.UI @15.2.11.0						| DevExpress.DataAccess.UI @17.1.6.0
+DevExpress.Images @15.2.11.0							| DevExpress.Images @17.1.6.0
+DevExpress.Office @15.2.11.0							|
+DevExpress.Office.Core @15.2.11.0						| DevExpress.Office.Core @17.1.6.0
+DevExpress.Pdf.Core @15.2.11.0							| DevExpress.Core @17.1.6.0
+DevExpress.Pdf.Drawing @15.2.11.0						| DevExpress.Pdf.Drawing @17.1.6.0
+DevExpress.PivotGrid.Core @15.2.11.0					| DevExpress.PivotGrid.Core @17.1.6.0
+DevExpress.Printing.Core @15.2.11.0						| DevExpress.Core @17.1.6.0
+DevExpress.RichEdit @15.2.11.0							|
+DevExpress.RichEdit.Core @15.2.11.0						| DevExpress.RichEdit.Core @17.1.6.0
+DevExpress.Sparkline @15.2.11.0							|
+DevExpress.Sparkline.Core @15.2.11.0					| DevExpress.Sparkline.Core @17.1.6.0
+DevExpress.SpellChecker.Core @15.2.11.0					| DevExpress.SpellChecker.Core @17.1.6.0
+DevExpress.Utils @15.2.11.0								| DevExpress.Core @17.1.6.0
+DevExpress.Utils.UI @15.2.11.0							| DevExpress.Utils.UI @17.1.6.0
+DevExpress.Xpo @15.2.11.0								| DevExpress.Xpo @17.1.6.0
+DevExpress.XtraBars @15.2.11.0							| DevExpress.Win @17.1.6.0
+DevExpress.XtraCharts @15.2.11.0						| DevExpress.Charts.Core @17.1.6.0
+DevExpress.XtraCharts.Extensions @15.2.11.0				| DevExpress.Win.Charts @17.1.6.0
+DevExpress.XtraCharts.UI @15.2.11.0						| DevExpress.Win.Charts @17.1.6.0
+DevExpress.XtraCharts.Wizard @15.2.11.0					| DevExpress.Win.Charts @17.1.6.0
+DevExpress.XtraEditors @15.2.11.0						| DevExpress.Win @17.1.6.0
+DevExpress.XtraGauges.Core @15.2.11.0					| DevExpress.Gauges.Core @17.1.6.0
+DevExpress.XtraGauges.Presets @15.2.11.0				| DevExpress.Win.Gauges @17.1.6.0
+DevExpress.XtraGauges.Win @15.2.11.0					| DevExpress.Win.Gauges @17.1.6.0
+DevExpress.XtraGrid @15.2.11.0							| DevExpress.Win @17.1.6.0
+DevExpress.XtraLayout @15.2.11.0						| DevExpress.Win @17.1.6.0
+DevExpress.XtraNavBar @15.2.11.0						| DevExpress.Win @17.1.6.0
+DevExpress.XtraPdfViewer @15.2.11.0						| DevExpress.Win.PdfViewer @17.1.6.0
+DevExpress.XtraPivotGrid @15.2.11.0						| DevExpress.Win @17.1.6.0
+DevExpress.XtraPrinting @15.2.11.0						| DevExpress.Win @17.1.6.0
+DevExpress.XtraReports @15.2.11.0						| DevExpress.Reporting.Core @17.1.6.0
+DevExpress.XtraReports.Extensions @15.2.11.0			| DevExpress.Win.Reporting @17.1.6.0
+DevExpress.XtraRichEdit @15.2.11.0						| DevExpress.Win.RichEdit @17.1.6.0
+DevExpress.XtraRichEdit.Extensions @15.2.11.0			| DevExpress.Win.RichEdit @17.1.6.0
+DevExpress.XtraScheduler @15.2.11.0						| DevExpress.Win.Scheduler @17.1.6.0
+DevExpress.XtraScheduler.Core @15.2.11.0				| DevExpress.Scheduler.Core @17.1.6.0
+DevExpress.XtraScheduler.Reporting @15.2.11.0			|
+DevExpress.XtraScheduler.Reporting.Extensions @15.2.11.0|
+DevExpress.XtraSpellChecker @15.2.11.0					| DevExpress.Win.SpellChecker @17.1.6.0
+DevExpress.XtraTreeList @15.2.11.0						| DevExpress.Win @17.1.6.0
+DevExpress.XtraVerticalGrid @15.2.11.0					| DevExpress.Win @17.1.6.0
+DevExpress.XtraWizard @15.2.11.0						| DevExpress.Win @17.1.6.0
