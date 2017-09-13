@@ -23,17 +23,18 @@ namespace repkg.IO
 			var result = new ConvertedFile();
 
 			var newLines = new List<string>();
-			foreach (var line in File.ReadAllLines(file))
+			foreach (var lineString in File.ReadAllLines(file))
 			{
-				var convertedLine = ConvertLine(line);
+				var line = ConvertLine(lineString);
 
-				var isUntouched = !convertedLine.WasTouched;
-				var isUnique = !newLines.Contains(convertedLine.Value);
+				var isDuplicate = newLines.Contains(line.Value);
+				var isDuplicateToRemove = line.WasTouched && isDuplicate;
 
-				if (isUntouched || isUnique)
-					newLines.Add(convertedLine.Value);
+				var keepLine = !isDuplicateToRemove && !line.WasEliminated;
+				if (keepLine)
+					newLines.Add(line.Value);
 
-				if (convertedLine.WasTouched)
+				if (line.WasTouched)
 					result.WasTouched = true;
 			}
 
@@ -64,14 +65,13 @@ namespace repkg.IO
 
 					line = Regex.Replace(line, PACKAGE_PATTERN, item.NewPackageName);
 					line = Regex.Replace(line, versionPattern, item.NewVersion);
+
+					result.Value = line;
 				}
 
 				if (item.ShouldRemovePackage)
-				{
-					// ?!
-				}
+					result.Value = "";
 
-				result.Value = line;
 				result.WasTouched = true;
 			}
 
@@ -82,12 +82,16 @@ namespace repkg.IO
 	public class ConvertedFile
 	{
 		public string[] Lines { get; set; }
+
 		public bool WasTouched { get; set; }
 	}
 
 	class ConvertedLine
 	{
 		public string Value { get; set; }
+
 		public bool WasTouched { get; set; }
+
+		public bool WasEliminated => string.IsNullOrEmpty(Value) && WasTouched;
 	}
 }

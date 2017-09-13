@@ -1,0 +1,5 @@
+# OldPackage @OldVersion | NewPackage @NewVersion
+# Whitespaces are ignored
+# Leave right side blank to remove packages
+
+DevExpress.BonusSkins @15.2.11.0 	|
