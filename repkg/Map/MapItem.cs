@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace repkg.Map
 {
-	[DebuggerDisplay("{OldPackageName,nq} @{OldVersion,nq} -> {NewPackageName,nq} @{NewVersion,nq}")]
+	[DebuggerDisplay("{OldPackage.Name,nq} @{OldPackage.Version,nq}")]
 	public class MapItem
 	{
 		public Package OldPackage { get; set; }
@@ -21,6 +21,7 @@ namespace repkg.Map
 
 		public bool ShouldRemovePackage => HasOldVersion && !HasNewVersion;
 
+		[DebuggerDisplay("{Name,nq} @{Version,nq}")]
 		public class Package
 		{
 			public string Name { get; set;}

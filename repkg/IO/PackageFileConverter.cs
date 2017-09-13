@@ -65,17 +65,14 @@ namespace repkg.IO
 			{
 				if (item.ShouldConvertPackage)
 				{
-					var results = new List<string>();
-
 					foreach (var newPackage in item.NewPackages)
 					{
 						string versionPattern = VERSION_PATTERN.Replace("%VERSION%", item.OldPackage.Version);
 
-						line = Regex.Replace(line, PACKAGE_PATTERN, newPackage.Name);
-						line = Regex.Replace(line, versionPattern, newPackage.Version);
+						string newLine = Regex.Replace(line, PACKAGE_PATTERN, newPackage.Name);
+						newLine = Regex.Replace(newLine, versionPattern, newPackage.Version);
+						result.Results.Add(newLine);
 					}
-
-					result.Results = results;
 				}
 
 				if (item.ShouldRemovePackage)
