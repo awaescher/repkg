@@ -9,6 +9,6 @@
 # Leave right side blank to remove packages
 # Regex matching is supported for the old version number only
 
-Castle.Windsor @.*		| TinyIoC @1.3
-Castle.Core @.*			| 
-Eto.Forms @.*			| MaterialDesignColors @1.1.3 : MaterialDesignThemes @2.3.0.823 : MaterialDesignThemes.MahApps @0.0.10
+Castle.Windsor @.*?		| TinyIoC @1.3
+Castle.Core @.*?		| 
+Eto.Forms @.*?			| MaterialDesignColors @1.1.3 : MaterialDesignThemes @2.3.0.823 : MaterialDesignThemes.MahApps @0.0.10
