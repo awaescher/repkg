@@ -1,6 +1,6 @@
-﻿using System;
+﻿using repkg.IO;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 namespace repkg.Map
 {
@@ -8,16 +8,16 @@ namespace repkg.Map
 	{
 		Dictionary<string, MapItem> _map;
 
-		public FilePackageMap(string mappingFile)
+		public FilePackageMap(ILineReader reader)
 		{
 			_map = new Dictionary<string, MapItem>();
 
-			foreach (var line in File.ReadAllLines(mappingFile))
+			foreach (var line in reader.Read())
 			{
 				var item = TryParseMapItem(line);
 
 				if (item != null)
-					_map.Add(item.OldPackageName, item);
+					_map.Add(item.OldPackage.Name, item);
 			}
 		}
 
@@ -27,6 +27,8 @@ namespace repkg.Map
 			_map.TryGetValue(package, out item);
 			return item;
 		}
+
+		public int ItemCount => _map?.Keys.Count ?? 0;
 
 		private MapItem TryParseMapItem(string line)
 		{
@@ -42,18 +44,38 @@ namespace repkg.Map
 				throw new NotSupportedException($"Line {line} cannot be split into two parts to map.");
 
 			var oldPackageInfo = SplitTrim(packages[0], "@");
-			var newPackageInfo = SplitTrim(packages[1], "@");
 
 			if (oldPackageInfo.Length != 2)
 				throw new NotSupportedException($"Invalid format for the old package definition:\nExpected: \"Name @Version\"\nActual: \"{packages[0]}\"");
 
-			return new MapItem()
+			var item = new MapItem()
 			{
-				OldPackageName = oldPackageInfo[0],
-				OldVersion = oldPackageInfo[1],
-				NewPackageName = newPackageInfo.Length == 2 ? newPackageInfo[0] : "",
-				NewVersion = newPackageInfo.Length == 2 ? newPackageInfo[1] : ""
+				OldPackage = new MapItem.Package()
+				{
+					Name = oldPackageInfo[0],
+					Version = oldPackageInfo[1],
+				},
+				NewPackages = new List<MapItem.Package>()
 			};
+
+			if (!string.IsNullOrWhiteSpace(packages[1]))
+			{
+				foreach (var newVersion in SplitTrim(packages[1], ":"))
+				{
+					var newPackageInfo = SplitTrim(newVersion, "@");
+
+					if (oldPackageInfo.Length != 2)
+						throw new NotSupportedException($"Invalid format for the old package definition:\nExpected: \"Name @Version\"\nActual: \"{packages[0]}\"");
+
+					item.NewPackages.Add(new MapItem.Package()
+					{
+						Name = newPackageInfo[0],
+						Version = newPackageInfo[1]
+					});
+				}
+			}
+
+			return item;
 		}
 
 		private string[] SplitTrim(string value, string separator)

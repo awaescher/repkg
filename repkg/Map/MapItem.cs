@@ -1,21 +1,33 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace repkg.Map
 {
 	[DebuggerDisplay("{OldPackageName,nq} @{OldVersion,nq} -> {NewPackageName,nq} @{NewVersion,nq}")]
 	public class MapItem
 	{
-		public string OldPackageName { get; set; }
-		public string OldVersion { get; set; }
-		public string NewPackageName { get; set; }
-		public string NewVersion { get; set; }
+		public Package OldPackage { get; set; }
 
-		public bool HasOldVersion => !string.IsNullOrEmpty(OldPackageName) && !string.IsNullOrEmpty(OldVersion);
+		public List<Package> NewPackages { get; set; }
 
-		public bool HasNewVersion => !string.IsNullOrEmpty(NewPackageName) && !string.IsNullOrEmpty(NewVersion);
+		public bool HasOldVersion => OldPackage?.IsValid ?? false;
+
+		public bool HasNewVersion => NewPackages != null
+										&& NewPackages.Any()
+										&& NewPackages.All(p => p.IsValid);
 
 		public bool ShouldConvertPackage => HasOldVersion && HasNewVersion;
 
 		public bool ShouldRemovePackage => HasOldVersion && !HasNewVersion;
+
+		public class Package
+		{
+			public string Name { get; set;}
+
+			public string Version { get; set; }
+
+			public bool IsValid => !string.IsNullOrEmpty(Name) && !string.IsNullOrEmpty(Version);
+		}
 	}
 }

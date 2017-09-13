@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IO\FileLineReader.cs" />
+    <Compile Include="IO\ILineReader.cs" />
     <Compile Include="Map\IPackageMap.cs" />
     <Compile Include="Log\ConsoleLog.cs" />
     <Compile Include="Log\ILog.cs" />

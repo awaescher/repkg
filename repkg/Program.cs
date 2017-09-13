@@ -25,7 +25,7 @@ namespace repkg
 			Console.WriteLine("Path: " + args[0]);
 
 			var converter = new PackageMigrator(
-					new FilePackageMap(mappingFile),
+					new FilePackageMap(new FileLineReader(mappingFile)),
 					new PackageFileFinder(path),
 					new ConsoleLog()
 				);

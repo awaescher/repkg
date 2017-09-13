@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace repkg.IO
@@ -25,17 +26,20 @@ namespace repkg.IO
 			var newLines = new List<string>();
 			foreach (var lineString in File.ReadAllLines(file))
 			{
-				var line = ConvertLine(lineString);
+				var convertedLine = ConvertLine(lineString);
 
-				var isDuplicate = newLines.Contains(line.Value);
-				var isDuplicateToRemove = line.WasTouched && isDuplicate;
+				foreach (var line in convertedLine.Results)
+				{
+					var isDuplicate = newLines.Contains(line);
+					var isDuplicateToRemove = convertedLine.WasTouched && isDuplicate;
 
-				var keepLine = !isDuplicateToRemove && !line.WasEliminated;
-				if (keepLine)
-					newLines.Add(line.Value);
+					var keepLine = !isDuplicateToRemove && !convertedLine.WasEliminated;
+					if (keepLine)
+						newLines.Add(line);
 
-				if (line.WasTouched)
-					result.WasTouched = true;
+					if (convertedLine.WasTouched)
+						result.WasTouched = true;
+				}
 			}
 
 			result.Lines = newLines.ToArray();
@@ -48,7 +52,7 @@ namespace repkg.IO
 			var match = Regex.Match(line, PACKAGE_PATTERN);
 
 			var result = new ConvertedLine() {
-				Value = line,
+				Results = new List<string> { line },
 				WasTouched = false
 			};
 
@@ -61,16 +65,21 @@ namespace repkg.IO
 			{
 				if (item.ShouldConvertPackage)
 				{
-					string versionPattern = VERSION_PATTERN.Replace("%VERSION%", item.OldVersion);
+					var results = new List<string>();
 
-					line = Regex.Replace(line, PACKAGE_PATTERN, item.NewPackageName);
-					line = Regex.Replace(line, versionPattern, item.NewVersion);
+					foreach (var newPackage in item.NewPackages)
+					{
+						string versionPattern = VERSION_PATTERN.Replace("%VERSION%", item.OldPackage.Version);
 
-					result.Value = line;
+						line = Regex.Replace(line, PACKAGE_PATTERN, newPackage.Name);
+						line = Regex.Replace(line, versionPattern, newPackage.Version);
+					}
+
+					result.Results = results;
 				}
 
 				if (item.ShouldRemovePackage)
-					result.Value = "";
+					result.Results.Clear();
 
 				result.WasTouched = true;
 			}
@@ -88,10 +97,10 @@ namespace repkg.IO
 
 	class ConvertedLine
 	{
-		public string Value { get; set; }
+		public List<string> Results { get; set; }
 
 		public bool WasTouched { get; set; }
 
-		public bool WasEliminated => string.IsNullOrEmpty(Value) && WasTouched;
+		public bool WasEliminated => (Results?.Any() ?? false) && WasTouched;
 	}
 }

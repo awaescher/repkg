@@ -3,6 +3,8 @@
 	public interface IPackageMap
 	{
 		MapItem GetMapItemFor(string package);
+
+		int ItemCount { get; }
 	}
 
 

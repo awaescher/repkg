@@ -2,8 +2,11 @@
 # The pattern is:
 #     OldPackage @OldVersion | NewPackage @NewVersion
 #
+# To map 1-to-n, use ":" 
+#     OldPackage @OldVersion | NewPackage1 @NewVersion1 : NewPackage2 @NewVersion2
+#
 # Whitespaces are ignored
 # Leave right side blank to remove packages
-# Regex matching is supported for the old version number only (by now)
+# Regex matching is supported for the old version number only
 
 DevExpress.BonusSkins @15.2.11.0 	|
