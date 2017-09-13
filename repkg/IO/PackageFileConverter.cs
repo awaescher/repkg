@@ -65,6 +65,8 @@ namespace repkg.IO
 			{
 				if (item.ShouldConvertPackage)
 				{
+					result.Results.Clear();
+
 					foreach (var newPackage in item.NewPackages)
 					{
 						string versionPattern = VERSION_PATTERN.Replace("%VERSION%", item.OldPackage.Version);
@@ -98,6 +100,6 @@ namespace repkg.IO
 
 		public bool WasTouched { get; set; }
 
-		public bool WasEliminated => (Results?.Any() ?? false) && WasTouched;
+		public bool WasEliminated => WasTouched && (Results?.Count < 1);
 	}
 }
