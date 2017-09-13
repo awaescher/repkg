@@ -1,6 +1,10 @@
-# OldPackage @OldVersion | NewPackage @NewVersion
+# Define the packages to map or remove here.
+# The pattern is:
+#     OldPackage @OldVersion | NewPackage @NewVersion
+#
 # Whitespaces are ignored
 # Leave right side blank to remove packages
+# Regex matching is supported for the old version number only (by now)
 
 DevExpress.BonusSkins @15.2.11.0						| DevExpress.Win.BonusSkins @17.1.6.0
 DevExpress.Charts.Core @15.2.11.0						| DevExpress.Charts.Core @17.1.6.0
