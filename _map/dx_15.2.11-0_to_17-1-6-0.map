@@ -17,7 +17,7 @@ DevExpress.Dashboard.Core @15.2.11.0					|
 DevExpress.Dashboard.Win @15.2.11.0						| 
 DevExpress.DataAccess @15.2.11.0						| DevExpress.DataAccess @17.1.6.0
 DevExpress.DataAccess.UI @15.2.11.0						| DevExpress.DataAccess.UI @17.1.6.0
-DevExpress.Docs @15.2.11.0								| 
+DevExpress.Docs @15.2.11.0								| DevExpress.Document.Processor @17.1.6.0
 DevExpress.Images @15.2.11.0							| DevExpress.Images @17.1.6.0
 DevExpress.Office @15.2.11.0							| 
 DevExpress.Office.Core @15.2.11.0						| DevExpress.Office.Core @17.1.6.0
