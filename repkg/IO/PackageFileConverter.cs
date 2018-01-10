@@ -36,10 +36,10 @@ namespace repkg.IO
 					var keepLine = !isDuplicateToRemove && !convertedLine.WasEliminated;
 					if (keepLine)
 						newLines.Add(line);
-
-					if (convertedLine.WasTouched)
-						result.WasTouched = true;
 				}
+
+				if (convertedLine.WasTouched)
+					result.WasTouched = true;
 			}
 
 			result.Lines = newLines.ToArray();
