@@ -13,3 +13,11 @@ The sample mapping file with three simple entries ...
 ... converts a packages.config file like this:
 
 ![Screenshot](_img/repkg_small.png)
+
+
+### Usage
+Call the executable `repkg.exe` with two arguments:
+ - the **path** to convert files in
+ - the **mapping file** to convert files with:
+ 
+  `repkg.exe "C:\Repositories\TargetFolder" "..\_map\sample.map"`
