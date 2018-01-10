@@ -26,7 +26,7 @@ namespace repkg
 			var mappingFile = args[1];
 			if (!File.Exists(mappingFile))
 			{
-				Console.WriteLine("The mapping file does not exist:" + Environment.NewLine + path);
+				Console.WriteLine("The mapping file does not exist:" + Environment.NewLine + mappingFile);
 				return;
 			}
 
