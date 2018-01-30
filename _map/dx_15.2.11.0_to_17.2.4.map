@@ -1,0 +1,67 @@
+# Define the packages to map or remove here.
+# The pattern is:
+#     OldPackage @OldVersion | NewPackage @NewVersion
+#
+# To map 1-to-n, use ":" 
+#     OldPackage @OldVersion | NewPackage1 @NewVersion1 : NewPackage2 @NewVersion2
+#
+# Whitespaces are ignored
+# Leave right side blank to remove packages
+# Regex matching is supported for the old version number only
+
+DevExpress.BonusSkins @15.2.11.0						| DevExpress.Win.BonusSkins @17.2.4
+DevExpress.Charts.Core @15.2.11.0						| DevExpress.Charts.Core @17.2.4
+DevExpress.CodeParser @15.2.11.0						| DevExpress.DataAccess @17.2.4
+DevExpress.Data @15.2.11.0								| DevExpress.Data @17.2.4
+DevExpress.Dashboard.Core @15.2.11.0					| 
+DevExpress.Dashboard.Win @15.2.11.0						| 
+DevExpress.DataAccess @15.2.11.0						| DevExpress.DataAccess @17.2.4
+DevExpress.DataAccess.UI @15.2.11.0						| DevExpress.DataAccess.UI @17.2.4
+DevExpress.Docs @15.2.11.0								| DevExpress.Document.Processor @17.2.4
+DevExpress.Images @15.2.11.0							| DevExpress.Images @17.2.4
+DevExpress.Office @15.2.11.0							| 
+DevExpress.Office.Core @15.2.11.0						| DevExpress.Office.Core @17.2.4
+DevExpress.Map.Core @15.2.11.0							| DevExpress.Map.Core @17.2.4
+DevExpress.Pdf.Core @15.2.11.0							| DevExpress.Pdf.Core @17.2.4
+DevExpress.Pdf.Drawing @15.2.11.0						| DevExpress.Pdf.Drawing @17.2.4
+DevExpress.PivotGrid.Core @15.2.11.0					| DevExpress.PivotGrid.Core @17.2.4
+DevExpress.Printing.Core @15.2.11.0						| DevExpress.Printing.Core @17.2.4
+DevExpress.RichEdit @15.2.11.0							| 
+DevExpress.RichEdit.Core @15.2.11.0						| DevExpress.RichEdit.Core @17.2.4
+DevExpress.Snap.Core @15.2.11.0							| 
+DevExpress.Sparkline @15.2.11.0							| 
+DevExpress.Sparkline.Core @15.2.11.0					| DevExpress.Sparkline.Core @17.2.4
+DevExpress.SpellChecker.Core @15.2.11.0					| DevExpress.SpellChecker.Core @17.2.4
+DevExpress.Spreadsheet.Core @15.2.11.0					| DevExpress.Spreadsheet.Core @17.2.4
+DevExpress.Utils @15.2.11.0								| DevExpress.Utils @17.2.4
+DevExpress.Utils.UI @15.2.11.0							| DevExpress.Utils.UI @17.2.4
+DevExpress.Xpo @15.2.11.0								| DevExpress.Xpo @17.2.4
+DevExpress.XtraBars @15.2.11.0							| DevExpress.Win @17.2.4
+DevExpress.XtraCharts @15.2.11.0						| DevExpress.Charts.Core @17.2.4
+DevExpress.XtraCharts.Extensions @15.2.11.0				| DevExpress.Win.Charts @17.2.4
+DevExpress.XtraCharts.UI @15.2.11.0						| DevExpress.Win.Charts @17.2.4
+DevExpress.XtraCharts.Wizard @15.2.11.0					| DevExpress.Win.Charts @17.2.4
+DevExpress.XtraEditors @15.2.11.0						| DevExpress.Win @17.2.4
+DevExpress.XtraGauges.Core @15.2.11.0					| DevExpress.Gauges.Core @17.2.4
+DevExpress.XtraGauges.Presets @15.2.11.0				| DevExpress.Win.Gauges @17.2.4
+DevExpress.XtraGauges.Win @15.2.11.0					| DevExpress.Win.Gauges @17.2.4
+DevExpress.XtraGrid @15.2.11.0							| DevExpress.Win @17.2.4
+DevExpress.XtraLayout @15.2.11.0						| DevExpress.Win @17.2.4
+DevExpress.XtraMap @15.2.11.0							| DevExpress.Win.Map @17.2.4
+DevExpress.XtraNavBar @15.2.11.0						| DevExpress.Win @17.2.4
+DevExpress.XtraPdfViewer @15.2.11.0						| DevExpress.Win.PdfViewer @17.2.4
+DevExpress.XtraPivotGrid @15.2.11.0						| DevExpress.Win @17.2.4
+DevExpress.XtraPrinting @15.2.11.0						| DevExpress.Win @17.2.4
+DevExpress.XtraReports @15.2.11.0						| DevExpress.Reporting.Core @17.2.4 : DevExpress.Win.Reporting @17.2.4
+DevExpress.XtraReports.Extensions @15.2.11.0			| DevExpress.Win.Reporting @17.2.4
+DevExpress.XtraRichEdit @15.2.11.0						| DevExpress.Win.RichEdit @17.2.4
+DevExpress.XtraRichEdit.Extensions @15.2.11.0			| DevExpress.Win.RichEdit @17.2.4
+DevExpress.XtraScheduler @15.2.11.0						| DevExpress.Win.Scheduler @17.2.4
+DevExpress.XtraScheduler.Core @15.2.11.0				| DevExpress.Scheduler.Core @17.2.4
+DevExpress.XtraScheduler.Reporting @15.2.11.0			| 
+DevExpress.XtraScheduler.Reporting.Extensions @15.2.11.0| 
+DevExpress.XtraSpellChecker @15.2.11.0					| DevExpress.Win.SpellChecker @17.2.4
+DevExpress.XtraSpreadsheet @15.2.11.0					| DevExpress.Win.Spreadsheet @17.2.4
+DevExpress.XtraTreeList @15.2.11.0						| DevExpress.Win @17.2.4
+DevExpress.XtraVerticalGrid @15.2.11.0					| DevExpress.Win @17.2.4
+DevExpress.XtraWizard @15.2.11.0						| DevExpress.Win @17.2.4
